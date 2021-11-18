@@ -1,15 +1,24 @@
+import { HttpStatus } from "./HttpStatus";
 
 export class AppError implements Error {
-  public readonly message: string
-  public readonly statusCode: number;
-  public readonly name: string;
-  public readonly stack?: string | undefined;
+  public  message: string
+  public  status: HttpStatus;
+  public  name: string;
+  public  stack?: string | undefined;
 
-  constructor(message: string, statusCode: number, name?: string, stack?: string) {
+  constructor(message: string, status: number | HttpStatus, name?: string, stack?: string) {
 
     this.message = message;
-    this.statusCode = statusCode;
-    this.name = name || statusCode.toString();
+    this.status = status
+    this.name = name || status.toString();
     this.stack = stack
+  }
+
+  public create(err: AppError) {
+    this.message = err.message;
+    this.status = err.status
+    this.name = err.name || err.status.toString();
+    this.stack = err.stack
+    
   }
 }

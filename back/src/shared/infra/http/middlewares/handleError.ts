@@ -6,7 +6,7 @@ export const handleError = (err: Error,
   response: Response,
   next: NextFunction) => {
   if (err instanceof AppError) {
-    return response.status(err.statusCode).json({ message: err.message });
+    return response.status(err.status).json({ message: err.message });
   }
   return response.status(500).json({
     status: "error",

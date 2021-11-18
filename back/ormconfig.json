@@ -1,10 +1,10 @@
 {
   "type": "sqlite",
   "database": "src/shared/infra/sqlite/db.sqlite",
-  "migrations": ["src/shared/infra/migrations/*.ts"],
+  "migrations": ["src/shared/infra/sqlite/migrations/*.ts"],
   "entities": ["src/modules/**/infra/**/entities/*.ts"],
   "cli": {
-    "migrationsDir": "src/shared/infra/migrations",
+    "migrationsDir": "src/shared/infra/sqlite/migrations",
     "entitiesDir": "src/modules/**/infra/**/entities"
   }
 }
